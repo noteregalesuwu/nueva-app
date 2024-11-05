@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles,Drawer, Divider, Typography } from "@material-ui/core";
+import { makeStyles,Drawer, Divider } from "@material-ui/core";
 import OptionsList from "./OptionsList";
 const drawerLength = 240;
 const useStiles = makeStyles(theme => ({
