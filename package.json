@@ -21,7 +21,8 @@
     "canvas-confetti": "^1.9.3",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
-    "react-router-dom": "^6.28.0"
+    "react-router-dom": "^6.28.0",
+    "vite-plugin-pwa": "^0.20.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
