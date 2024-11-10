@@ -5,10 +5,10 @@ function RequestDj() {
   return (
     <Fragment>
       <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" color="textSecondary" gutterBottom>
           Quieres pedir una cancion?
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="h6" color="textSecondary" gutterBottom>
           Proximamente podras pedirle cancion a la Nutria DJ desde aqui
         </Typography>
       </Container>

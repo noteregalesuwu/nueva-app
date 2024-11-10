@@ -9,7 +9,7 @@ function OptionsButtons() {
   return (
     <Fragment>
       <Box style={{ marginTop: "3%", textAlign: "center" }}>
-        <Typography variant="h6" color="primary">
+        <Typography variant="h6" color="textSecondary">
           Explora todas las opciones
         </Typography>
         <Button
