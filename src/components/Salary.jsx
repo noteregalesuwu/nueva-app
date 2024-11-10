@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Box, Typography, Grid } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 import confetti from "canvas-confetti";
 
 const Salary = () => {
@@ -32,25 +32,10 @@ const Salary = () => {
 
     const updateCountDownSalary = (feriados) => {
         const now = new Date();
-        let currentYear = now.getFullYear();
-        let currentMonth = now.getMonth();
+        const lastBusinessDay = getLastBusinessDayOfMonth(now.getFullYear(), now.getMonth(), feriados);
+        lastBusinessDay.setHours(17, 0, 0, 0);
 
-        let lastBusinessDay = getLastBusinessDayOfMonth(currentYear, currentMonth, feriados);
-        lastBusinessDay.setHours(22, 0, 0, 0);
-
-        let timeRemaining = lastBusinessDay - now;
-
-        if (timeRemaining < 0) {
-            if (currentMonth === 11) {
-                currentYear++;
-                currentMonth = 0;
-            } else {
-                currentMonth++;
-            }
-            lastBusinessDay = getLastBusinessDayOfMonth(currentYear, currentMonth, feriados);
-            lastBusinessDay.setHours(20, 0, 0, 0);
-            timeRemaining = lastBusinessDay - now;
-        }
+        const timeRemaining = lastBusinessDay - now;
 
         const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -80,17 +65,18 @@ const Salary = () => {
 
     return (
         <Fragment>
-            <Box display="flex" justifyContent="center" style={{marginBottom:"2.5%"}}>
+            <Box display="flex" justifyContent="center" style={{ marginBottom: "2.5%" }}>
                 <img 
                     src="/img/nutria-chambeadora.jpg" 
-                    alt="Nutria Chambeadora"
+                    alt="Nutria con salario"
                     style={{ width: "100%", maxWidth: "400px", borderRadius: "10px", margin: "auto", display: "block" }}
                 />
             </Box>
             <Box
-                id="countdown-cobro"
+                id="countdown-salary"
                 display="flex"
                 justifyContent="center"
+                alignItems="center"
                 mt={3}
                 p={2}
                 style={{
@@ -98,31 +84,28 @@ const Salary = () => {
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     maxWidth: '400px',
+                    maxHeight: '100px',
                     margin: '0 auto',
                 }}
             >
-                <Grid container spacing={3} alignItems="center" justifyContent="center">
-                    {["dias", "horas", "minutos", "segundos"].map((unit, index) => {
-                        const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
-                        return (
-                            <Grid item key={unit}>
-                                <Box p={2}>
-                                    <Typography variant="h4" color="secondary" style={{ textAlign: "center" }}>
-                                        {timeValues[index]}
-                                    </Typography>
-                                    <Typography variant="body2" style={{ color: 'secondary',textAlign: "center" }}>
-                                        {unit}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        );
-                    })}
-                </Grid>
+                {["días", "horas", "minutos", "segundos"].map((unit, index) => {
+                    const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
+                    return (
+                        <Box key={unit} p={3} textAlign="center">
+                            <Typography variant="h4" color="secondary">
+                                {timeValues[index]}
+                            </Typography>
+                            <Typography variant="body2" color="secondary">
+                                {unit}
+                            </Typography>
+                        </Box>
+                    );
+                })}
             </Box>
-            <Box style={{marginTop:"3%",textAlign:"center"}}>
-                {isToday && <Typography variant="h6" color="primary">¡Hoy es el día de cobro!</Typography>}
-                {isTomorrow && <Typography variant="h6" color="secondary">¡Mañana es el día de cobro!</Typography>}
-                {!isToday && !isTomorrow && <Typography variant="h6" color="textSecondary">Nutrias Chambeadoras almorzando pan con hielo porque aún falta para el día de cobro.</Typography>}
+            <Box style={{ marginTop: "3%", textAlign: "center" }}>
+                {isToday && <Typography variant="h6" color="primary">¡Hoy es día de salario!</Typography>}
+                {isTomorrow && <Typography variant="h6" color="secondary">¡Mañana es día de salario!</Typography>}
+                {!isToday && !isTomorrow && <Typography variant="h6" color="textSecondary">Aguarda el salario con emoción</Typography>}
             </Box>
         </Fragment>
     );

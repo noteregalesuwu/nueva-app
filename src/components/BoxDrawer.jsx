@@ -1,29 +1,36 @@
 import React from "react";
-import { makeStyles,Drawer, Divider } from "@material-ui/core";
+import { Drawer, Divider } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import OptionsList from "./OptionsList";
+
 const drawerLength = 240;
-const useStiles = makeStyles(theme => ({
-    drawer: {
-        width: drawerLength,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerLength,
-    },
-    toolbar: theme.mixins.toolbar,
+
+const StyledDrawer = styled(Drawer)(({ theme }) => ({
+  width: drawerLength,
+  flexShrink: 0,
+  '& .MuiDrawer-paper': {
+    width: drawerLength,
+  },
 }));
+
+const ToolbarOffset = styled('div')(({ theme }) => ({
+  ...theme.mixins.toolbar,
+}));
+
 const BoxDrawer = (props) => {
-    const classes = useStiles();
-    return (
-        <Drawer className={classes.drawer} variant={props.variant} classes={{paper:classes.drawerPaper}} open={props.open} onClose={props.onClose ? props.onClose : null}>
-        <div className={classes.content}>
-            <div className={classes.toolbar}>
-                
-            </div>
-            <Divider/>
-            <OptionsList/>
-        </div>
-        </Drawer>
-    )
+  return (
+    <StyledDrawer
+      variant="temporary"
+      open={props.open}
+      onClose={props.onClose}
+    >
+      <div>
+        <ToolbarOffset />
+        <Divider />
+        <OptionsList toggleTheme={props.toggleTheme} isDarkMode={props.isDarkMode} />
+      </div>
+    </StyledDrawer>
+  );
 };
+
 export default BoxDrawer;

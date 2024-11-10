@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Box, Typography, Grid } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 import confetti from "canvas-confetti";
 
 const Bonus = () => {
@@ -72,7 +72,7 @@ const Bonus = () => {
 
     return (
         <Fragment>
-            <Box display="flex" justifyContent="center" style={{marginBottom:"2.5%"}}>
+            <Box display="flex" justifyContent="center" style={{ marginBottom: "2.5%" }}>
                 <img 
                     src="/img/nutria-aguinaldo.jpg" 
                     alt="Nutria con Aguinaldo"
@@ -83,6 +83,7 @@ const Bonus = () => {
                 id="countdown-aguinaldo"
                 display="flex"
                 justifyContent="center"
+                alignItems="center"
                 mt={3}
                 p={2}
                 style={{
@@ -90,28 +91,25 @@ const Bonus = () => {
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     maxWidth: '400px',
+                    maxHeight: '100px',
                     margin: '0 auto',
                 }}
             >
-                <Grid container spacing={3} alignItems="center" justifyContent="center">
-                    {["días", "horas", "minutos", "segundos"].map((unit, index) => {
-                        const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
-                        return (
-                            <Grid item key={unit}>
-                                <Box p={2}>
-                                    <Typography variant="h4" color="secondary" style={{ textAlign: "center" }}>
-                                        {timeValues[index]}
-                                    </Typography>
-                                    <Typography variant="body2" style={{ color: 'secondary',textAlign: "center" }}>
-                                        {unit}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        );
-                    })}
-                </Grid>
+                {["días", "horas", "minutos", "segundos"].map((unit, index) => {
+                    const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
+                    return (
+                        <Box key={unit} p={3} textAlign="center">
+                            <Typography variant="h4" color="secondary">
+                                {timeValues[index]}
+                            </Typography>
+                            <Typography variant="body2" color="secondary">
+                                {unit}
+                            </Typography>
+                        </Box>
+                    );
+                })}
             </Box>
-            <Box style={{marginTop:"3%",textAlign:"center"}}>
+            <Box style={{ marginTop: "3%", textAlign: "center" }}>
                 {isToday && <Typography variant="h6" color="primary">¡Hoy es el día de aguinaldo!</Typography>}
                 {isTomorrow && <Typography variant="h6" color="secondary">¡Mañana es el día de aguinaldo!</Typography>}
                 {!isToday && !isTomorrow && <Typography variant="h6" color="textSecondary">Nutrias Chambeadoras si ya tuvieran el aguinaldo</Typography>}

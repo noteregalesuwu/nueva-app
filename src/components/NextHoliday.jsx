@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Box, Typography, Grid } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 
 const NextHoliday = () => {
     const [timeRemaining, setTimeRemaining] = useState({});
@@ -50,49 +50,46 @@ const NextHoliday = () => {
 
     return (
         <Fragment>
-            <Box display="flex" justifyContent="center" style={{marginBottom:"2.5%"}}>
-                <Box style={{ marginBottom:"1%", textAlign: "center" }}>
-                <Typography variant="h6" color="textSecondary">Las nutrias Chambeadoras esperando el proximo feriado:</Typography>
-                </Box>
-                <img 
-                    src="/img/nutria-feriado.jpg" 
+            <Box display="flex" justifyContent="center" style={{ marginBottom: "2.5%" }}>
+                <img
+                    src="/img/nutria-feriado.jpg"
                     alt="Nutria con feriado"
                     style={{ width: "100%", maxWidth: "400px", borderRadius: "10px", margin: "auto", display: "block" }}
                 />
-                
             </Box>
             <Box
                 display="flex"
                 justifyContent="center"
+                alignItems="center"
                 mt={3}
                 p={2}
                 style={{
-                    backgroundColor: '#FFEB3B',
+                    backgroundColor: '#1de9b6',
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     maxWidth: '400px',
+                    maxHeight: '100px',
                     margin: '0 auto',
                 }}
             >
-                <Grid container spacing={3} alignItems="center" justifyContent="center">
-                    {["días", "horas", "minutos", "segundos"].map((unit, index) => {
-                        const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
-                        return (
-                            <Grid item key={unit}>
-                                <Box p={2}>
-                                    <Typography variant="h4" color="secondary" style={{ textAlign: "center" }}>
-                                        {timeValues[index]}
-                                    </Typography>
-                                    <Typography variant="body2" style={{ color: 'secondary', textAlign: "center" }}>
-                                        {unit}
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        );
-                    })}
-                </Grid>
+                {["días", "horas", "minutos", "segundos"].map((unit, index) => {
+                    const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
+                    return (
+                        <Box key={unit} p={3} textAlign="center">
+                            <Typography variant="h4" color="secondary">
+                                {timeValues[index]}
+                            </Typography>
+                            <Typography variant="body2" color="secondary">
+                                {unit}
+                            </Typography>
+                        </Box>
+                    );
+                })}
             </Box>
             <Box style={{ marginTop: "3%", textAlign: "center" }}>
+                <Typography variant="h6" color="textSecondary">
+                   Nutrias Chambeadoras esperando el próximo feriado pero:
+                </Typography>
                 {isTodayHoliday ? (
                     <Typography variant="h6" color="primary">
                         ¡Hoy es {nextHolidayName}!

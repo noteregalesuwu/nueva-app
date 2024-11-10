@@ -1,55 +1,84 @@
-import React, { Fragment } from "react";
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { CardGiftcard, MonetizationOn, Hotel, Restaurant, InfoSharp } from "@material-ui/icons";
+import React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import CardGiftcard from "@mui/icons-material/CardGiftcard";
+import MonetizationOn from "@mui/icons-material/MonetizationOn";
+import Hotel from "@mui/icons-material/Hotel";
+import Restaurant from "@mui/icons-material/Restaurant";
+import InfoSharp from "@mui/icons-material/InfoSharp";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link } from "react-router-dom";
+import { styled } from "@mui/material/styles";
 
-function OptionsList() {
+const StyledList = styled(List)(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
+
+const StyledListItemIcon = styled(ListItemIcon)(({ theme }) => ({
+  color: theme.palette.primary.main,
+}));
+
+const StyledListItemText = styled(ListItemText)(({ theme }) => ({
+  color: theme.palette.text.primary,
+}));
+
+function OptionsList({ toggleTheme, isDarkMode }) {
   return (
-    <Fragment>
-      <List component="nav">
+    <React.Fragment>
+      <StyledList component="nav">
         <ListItem button component={Link} to="/salary">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <MonetizationOn />
-          </ListItemIcon>
-          <ListItemText primary="Sueldo" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Sueldo" />
         </ListItem>
 
         <ListItem button component={Link} to="/bonus">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <MonetizationOn />
-          </ListItemIcon>
-          <ListItemText primary="Aguinaldo" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Aguinaldo" />
         </ListItem>
 
         <ListItem button component={Link} to="/present">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <CardGiftcard />
-          </ListItemIcon>
-          <ListItemText primary="Canasta Navideña" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Canasta Navideña" />
         </ListItem>
 
         <ListItem button component={Link} to="/end-of-year-party">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <Restaurant />
-          </ListItemIcon>
-          <ListItemText primary="Fiesta de fin de año" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Fiesta de fin de año" />
         </ListItem>
 
         <ListItem button component={Link} to="/next-holiday">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <Hotel />
-          </ListItemIcon>
-          <ListItemText primary="Próximo Feriado" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Próximo Feriado" />
         </ListItem>
 
         <ListItem button component={Link} to="/info">
-          <ListItemIcon>
+          <StyledListItemIcon>
             <InfoSharp />
-          </ListItemIcon>
-          <ListItemText primary="Informaciones" />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Informaciones" />
         </ListItem>
-      </List>
-    </Fragment>
+
+        <ListItem button onClick={toggleTheme}>
+          <StyledListItemIcon>
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </StyledListItemIcon>
+          <StyledListItemText primary="Cambiar tema" />
+        </ListItem>
+      </StyledList>
+    </React.Fragment>
   );
 }
 
