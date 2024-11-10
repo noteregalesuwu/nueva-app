@@ -1,6 +1,7 @@
-import { Box, Button, Typography } from "@mui/material";
 import React, { Fragment } from "react";
+import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { CardGiftcard, MonetizationOn } from "@mui/icons-material";
 
 function OptionsButtons() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ function OptionsButtons() {
           variant="contained"
           color="primary"
           style={{ margin: "10px" }}
+          startIcon={<MonetizationOn />}
           onClick={() => navigate("/salary")}
         >
           Cuando cobramos
@@ -23,6 +25,7 @@ function OptionsButtons() {
           variant="contained"
           color="secondary"
           style={{ margin: "10px" }}
+          startIcon={<CardGiftcard />}
           onClick={() => navigate("/bonus")}
         >
           Aguinaldo?

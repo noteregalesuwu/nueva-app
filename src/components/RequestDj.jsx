@@ -1,16 +1,19 @@
 import { Typography, Container } from "@mui/material";
 import React, { Fragment } from "react";
 
-function Index() {
+function RequestDj() {
   return (
     <Fragment>
       <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
         <Typography variant="h6" gutterBottom>
-          Bienvenidos a Nutrias Chambeadoras
+          Quieres pedir una cancion?
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Proximamente podras pedirle cancion a la Nutria DJ desde aqui
         </Typography>
       </Container>
     </Fragment>
   );
 }
 
-export default Index;
+export default RequestDj;

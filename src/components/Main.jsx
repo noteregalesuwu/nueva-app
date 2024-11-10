@@ -11,10 +11,12 @@ import NextHoliday from "./NextHoliday";
 import Info from "./Info";
 import Index from "./Index";
 import OptionsButtons from "./OptionsButtons";
+import RequestDj from "./RequestDj";
+import BonusCalc from "./BonusCalc";
 
 const Root = styled('div')(({ theme }) => ({
     display: "flex",
-    minHeight: "80vh",
+    minHeight: "100vh",
 }));
 
 const ToolbarOffset = styled('div')(({ theme }) => ({
@@ -56,6 +58,8 @@ const Main = ({ toggleTheme, isDarkMode }) => {
                             <Route path="/present" element={<Present />} />
                             <Route path="/next-holiday" element={<NextHoliday />} />
                             <Route path="/info" element={<Info />} />
+                            <Route path="/bonus-calc" element={<BonusCalc />} />
+                            <Route path="/request-dj" element={<RequestDj />} />
                         </Routes>
                         <OptionsButtons/>
                     </Content>

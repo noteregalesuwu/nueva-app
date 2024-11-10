@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import Main from './components/Main';
+import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from './theme';
+import Main from './components/Main';
+import { saveThemePreference, getInitialTheme } from './themeUtils';
 
-function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
+
+  useEffect(() => {
+    saveThemePreference(isDarkMode);
+  }, [isDarkMode]);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -12,10 +17,9 @@ function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
       <Main toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
     </ThemeProvider>
   );
-}
+};
 
 export default App;

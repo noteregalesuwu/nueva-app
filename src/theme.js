@@ -8,7 +8,7 @@ export const lightTheme = createTheme({
     },
     background: {
       default: '#fff',
-      ueno:'#1de9b6',
+      ueno: '#1de9b6',
     },
   },
 });
@@ -17,14 +17,11 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-        main: '#1de9b6',
+      main: '#1de9b6',
     },
     background: {
       default: '#121212',
-      ueno:'#1de9b6',
+      ueno: '#1de9b6',
     },
-    color:{
-      secondary:'#fff',
-    }
   },
 });

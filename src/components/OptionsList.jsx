@@ -13,6 +13,8 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import CalculateIcon from '@mui/icons-material/Calculate';
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 const StyledList = styled(List)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -77,6 +79,21 @@ function OptionsList({ toggleTheme, isDarkMode }) {
             <InfoSharp />
           </StyledListItemIcon>
           <StyledListItemText primary="Informaciones" />
+        </ListItem>
+
+        <ListItem button component={Link} to="/bonus-calc">
+          <StyledListItemIcon>
+            <CalculateIcon  />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Calcular Aguinaldo" />
+        </ListItem>
+
+        
+        <ListItem button component={Link} to="/request-dj">
+          <StyledListItemIcon>
+            <LibraryMusicIcon  />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Pedidos al DJ" />
         </ListItem>
 
         <ListItem button onClick={toggleTheme}>
