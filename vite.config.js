@@ -1,14 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import react from '@vitejs/plugin-react-swc'
 
-// https://vite.dev/config/
+
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
         name: 'Nutrias Chambeadoras APP',
         short_name: 'Nutria App',
@@ -33,6 +32,24 @@ export default defineConfig({
           },
         ],
       },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'document' || request.destination === 'script' || request.destination === 'style',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'static-resources',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 24 * 60 * 60, // 1 day
+              },
+            },
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+      },
     }),
   ],
-})
+});

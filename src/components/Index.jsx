@@ -4,12 +4,9 @@ import React, { Fragment } from "react";
 function Index() {
   return (
     <Fragment>
-      <Container maxWidth="sm" style={{ marginTop: "5%", textAlign: "center" }}>
-        <Typography variant="h2" gutterBottom>
+      <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
+        <Typography variant="h6" gutterBottom>
           Bienvenidos a Nutrias Chambeadoras
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          Explora nuestras secciones
         </Typography>
       </Container>
     </Fragment>

@@ -29,7 +29,7 @@ const NavBar = (props) => {
           <Typography variant="h6">Nutrias Chambeadoras</Typography>
         </Toolbar>
       </StyledAppBar>
-      <Offset />
+      <Offset style={{ backgroundColor: "#1de9b6"}} />
     </Fragment>
   );
 };

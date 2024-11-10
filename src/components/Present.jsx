@@ -90,15 +90,15 @@ const Present = () => {
                     backgroundColor: '#1de9b6',
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                    maxWidth: '400px',
-                    maxHeight: '100px',
+                    maxWidth: '300px',
+                    maxHeight: '80px',
                     margin: '0 auto',
                 }}
             >
                 {["días", "horas", "minutos", "segundos"].map((unit, index) => {
                     const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
                     return (
-                        <Box key={unit} p={3} textAlign="center">
+                        <Box key={unit} p={1} textAlign="center">
                             <Typography variant="h4" color="secondary">
                                 {timeValues[index]}
                             </Typography>

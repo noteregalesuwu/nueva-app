@@ -30,6 +30,7 @@ const Content = styled('main')(({ theme }) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    maxWidth: "100%"
 }));
 
 const Main = ({ toggleTheme, isDarkMode }) => {

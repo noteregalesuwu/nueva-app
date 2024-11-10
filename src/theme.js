@@ -23,5 +23,8 @@ export const darkTheme = createTheme({
       default: '#121212',
       ueno:'#1de9b6',
     },
+    color:{
+      secondary:'#fff',
+    }
   },
 });
