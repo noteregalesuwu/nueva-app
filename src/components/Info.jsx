@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 function Info () {
     return (
         <Fragment>
-            <Box style={{ marginTop: "3%", textAlign: "center" }}>
+            <Box maxWidth={"500px"} style={{ marginTop: "3%", textAlign: "center" }}>
             <Typography variant="h6" color="primary">
                 Sitio de Nutrias Chambeadoras
             </Typography>

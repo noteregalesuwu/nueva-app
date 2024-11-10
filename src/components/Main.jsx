@@ -9,6 +9,8 @@ import EndOfYearParty from "./EndOfYearParty";
 import Present from "./Present";
 import NextHoliday from "./NextHoliday";
 import Info from "./Info";
+import Index from "./Index";
+import OptionsButtons from "./OptionsButtons";
 
 const Root = styled('div')(({ theme }) => ({
     display: "flex",
@@ -46,6 +48,7 @@ const Main = ({ toggleTheme, isDarkMode }) => {
                     <Content>
                         <ToolbarOffset />
                         <Routes>
+                            <Route path="/" element={<Index />} />
                             <Route path="/salary" element={<Salary />} />
                             <Route path="/bonus" element={<Bonus />} />
                             <Route path="/end-of-year-party" element={<EndOfYearParty />} />
@@ -53,6 +56,7 @@ const Main = ({ toggleTheme, isDarkMode }) => {
                             <Route path="/next-holiday" element={<NextHoliday />} />
                             <Route path="/info" element={<Info />} />
                         </Routes>
+                        <OptionsButtons/>
                     </Content>
                 </Root>
             </Fragment>

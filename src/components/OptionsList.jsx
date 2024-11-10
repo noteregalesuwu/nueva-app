@@ -12,6 +12,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 
 const StyledList = styled(List)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -29,6 +30,13 @@ function OptionsList({ toggleTheme, isDarkMode }) {
   return (
     <React.Fragment>
       <StyledList component="nav">
+        <ListItem button component={Link} to="/">
+          <StyledListItemIcon>
+            <EmojiPeopleIcon />
+          </StyledListItemIcon>
+          <StyledListItemText primary="Inicio" />
+        </ListItem>
+
         <ListItem button component={Link} to="/salary">
           <StyledListItemIcon>
             <MonetizationOn />
