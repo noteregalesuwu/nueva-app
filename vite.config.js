@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import react from '@vitejs/plugin-react-swc'
 
-
 export default defineConfig({
   plugins: [
     react(),
@@ -23,11 +22,6 @@ export default defineConfig({
             src: '/img/pwa/nutria-chambeadora-512.png',
             sizes: '512x512',
             type: 'image/png',
-          },
-          {
-            src: '/img/pwa/nutria-chambeadora-512.png',
-            sizes: '512x512',
-            type: 'image/png',
             purpose: 'any maskable',
           },
         ],
@@ -36,7 +30,7 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === 'document' || request.destination === 'script' || request.destination === 'style',
-            handler: 'NetworkFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'static-resources',
               expiration: {
@@ -46,6 +40,8 @@ export default defineConfig({
             },
           },
         ],
+        skipWaiting: true,
+        clientsClaim: true,
       },
       devOptions: {
         enabled: true,
