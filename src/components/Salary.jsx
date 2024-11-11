@@ -92,10 +92,10 @@ const Salary = () => {
                     const timeValues = [timeRemaining.days, timeRemaining.hours, timeRemaining.minutes, timeRemaining.seconds];
                     return (
                         <Box key={unit} p={1} textAlign="center">
-                            <Typography variant="h4" color="secondary">
+                            <Typography variant="h4" color="textPrimary">
                                 {timeValues[index]}
                             </Typography>
-                            <Typography variant="body2" color="secondary">
+                            <Typography variant="body2" color="textPrimary">
                                 {unit}
                             </Typography>
                         </Box>
