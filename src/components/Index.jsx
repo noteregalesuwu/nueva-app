@@ -1,16 +1,17 @@
-import { Typography, Container } from "@mui/material";
-import React, { Fragment } from "react";
+import React, { useEffect } from 'react';
+import { requestPermission } from './RequestPermissions'; 
+const Index = () => {
+  useEffect(() => {
+    requestPermission();
+  }, []);
 
-function Index() {
   return (
-    <Fragment>
-      <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
-        <Typography variant="h6" color="primary" gutterBottom>
-          Bienvenidos a Nutrias Chambeadoras
-        </Typography>
-      </Container>
-    </Fragment>
+    <div>
+      <h1>Bienvenido a Nutrias Chambeadoras App</h1>
+      <p>Gestiona tus eventos y notificaciones.</p>
+      <button onClick={requestPermission}>Permitir Notificaciones</button>
+    </div>
   );
-}
+};
 
 export default Index;
