@@ -5,7 +5,7 @@ function RequestDj() {
   return (
     <Fragment>
       <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
+        <Typography variant="h6" color="primary" gutterBottom>
           Quieres pedir una cancion?
         </Typography>
         <Typography variant="h6" color="textSecondary" gutterBottom>

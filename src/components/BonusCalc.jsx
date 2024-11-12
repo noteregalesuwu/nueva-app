@@ -5,7 +5,7 @@ function BonusCalc() {
   return (
     <Fragment>
       <Container maxWidth="xs" style={{ marginTop: "5%", textAlign: "center" }}>
-        <Typography variant="h6" color="textSecondary" gutterBottom>
+        <Typography variant="h6" color="primary" gutterBottom>
           Calcula tu aguinaldo
         </Typography>
         <Typography variant="body1" color="textSecondary" gutterBottom>
