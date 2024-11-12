@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, Divider } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import OptionsList from "./OptionsList";
 
 const drawerLength = 240;
@@ -18,13 +18,16 @@ const ToolbarOffset = styled('div')(({ theme }) => ({
 }));
 
 const BoxDrawer = (props) => {
+  const theme = useTheme(); 
+
   return (
     <StyledDrawer
       variant="temporary"
       open={props.open}
       onClose={props.onClose}
+      backgroundColor={theme.palette.background.navBar}
     >
-      <div>
+      <div style={{ background: theme.palette.background.navBar }}>
         <ToolbarOffset />
         <Divider />
         <OptionsList toggleTheme={props.toggleTheme} isDarkMode={props.isDarkMode} />

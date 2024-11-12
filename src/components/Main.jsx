@@ -32,10 +32,10 @@ const Content = styled('main')(({ theme }) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    maxWidth: "100%"
+    maxWidth: "100%",
 }));
 
-const Main = ({ toggleTheme, isDarkMode }) => {
+const Main = ({ toggleTheme, currentTheme }) => {
     const [openList, setOpenList] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -47,7 +47,12 @@ const Main = ({ toggleTheme, isDarkMode }) => {
             <Fragment>
                 <Root>
                     <NavBar openList={handleDrawerToggle} />
-                    <BoxDrawer open={openList} onClose={handleDrawerToggle} toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+                    <BoxDrawer
+                        open={openList}
+                        onClose={handleDrawerToggle}
+                        toggleTheme={toggleTheme}
+                        isDarkMode={currentTheme === 'dark' || currentTheme === 'darkChristmas'}
+                    />
                     <Content>
                         <ToolbarOffset />
                         <Routes>
@@ -61,7 +66,7 @@ const Main = ({ toggleTheme, isDarkMode }) => {
                             <Route path="/bonus-calc" element={<BonusCalc />} />
                             <Route path="/request-dj" element={<RequestDj />} />
                         </Routes>
-                        <OptionsButtons/>
+                        <OptionsButtons />
                     </Content>
                 </Root>
             </Fragment>

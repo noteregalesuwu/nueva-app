@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import { lightTheme, darkTheme } from './theme';
+import { lightTheme, darkTheme, lightChristmas, darkChristmas } from './theme';
 import Main from './components/Main';
 import { saveThemePreference, getInitialTheme } from './themeUtils';
 
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(getInitialTheme());
+  const [currentTheme, setCurrentTheme] = useState(getInitialTheme());
 
   useEffect(() => {
-    saveThemePreference(isDarkMode);
-  }, [isDarkMode]);
+    saveThemePreference(currentTheme);
+  }, [currentTheme]);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+  const toggleTheme = (theme) => {
+    setCurrentTheme(theme); // Ahora actualiza `currentTheme` basado en el tema seleccionado
+  };
+
+  const getTheme = () => {
+    switch (currentTheme) {
+      case 'dark':
+        return darkTheme;
+      case 'lightChristmas':
+        return lightChristmas;
+      case 'darkChristmas':
+        return darkChristmas;
+      default:
+        return lightTheme;
+    }
   };
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <Main toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+    <ThemeProvider theme={getTheme()}>
+      <Main toggleTheme={toggleTheme} currentTheme={currentTheme} />
     </ThemeProvider>
   );
 };
