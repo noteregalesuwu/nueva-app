@@ -86,8 +86,8 @@ const Present = () => {
                 alignItems="center"
                 mt={3}
                 p={2}
-                style={{
-                    backgroundColor: '#1de9b6',
+                sx={{
+                    backgroundColor: 'primary.uenoCountdown',
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     maxWidth: '300px',

@@ -50,7 +50,7 @@ const NextHoliday = () => {
 
     return (
         <Fragment>
-            <Box display="flex" justifyContent="center" style={{ marginBottom: "2.5%" }}>
+            <Box display="flex" justifyContent="center" sx={{ marginBottom: "2.5%" }}>
                 <img
                     src="/img/nutria-feriado.jpg"
                     alt="Nutria con feriado"
@@ -63,8 +63,8 @@ const NextHoliday = () => {
                 alignItems="center"
                 mt={3}
                 p={2}
-                style={{
-                    backgroundColor: '#1de9b6',
+                sx={{
+                    backgroundColor: 'primary.uenoCountdown',
                     borderRadius: '8px',
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                     maxWidth: '300px',

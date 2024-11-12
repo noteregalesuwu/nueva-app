@@ -5,6 +5,7 @@ export const lightTheme = createTheme({
     mode: 'light',
     primary: {
       main: '#1de9b6',
+      uenoCountdown: '#1de9b6',
     },
     background: {
       default: '#fff',
@@ -18,6 +19,7 @@ export const darkTheme = createTheme({
     mode: 'dark',
     primary: {
       main: '#1de9b6',
+      uenoCountdown: '#1de9b6',
     },
     background: {
       default: '#121212',
